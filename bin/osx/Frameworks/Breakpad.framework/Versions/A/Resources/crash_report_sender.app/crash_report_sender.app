@@ -1,0 +1,1 @@
+/Users/patrickpissurno/Desktop/redis-desktop/rdm/bin/osx/Frameworks/crash_report_sender.app
