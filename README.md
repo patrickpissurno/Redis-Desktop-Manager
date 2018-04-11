@@ -20,8 +20,11 @@ A hard fork of the Redis Desktop Manager to better support macOS
 
 **Supported Redis versions**: 2.8+ (for old redis-servers use RedisDesktopManager 0.8.8)
 
+## Download
+[Click here](https://github.com/patrickpissurno/Redis-Desktop-Manager/releases/download/0.9.1%2B/Redis-Desktop-Manager-0.9.1.dmg) to download the DMG.
+
 ## Original repo
-This project was originally developed by Ihor Malinovskyi and the original source can be found [here](https://github.com/uglide/RedisDesktopManager)
+This project was originally developed by Ihor Malinovskyi and the original source can be found [here](https://github.com/uglide/RedisDesktopManager).
 
 ## Support
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
