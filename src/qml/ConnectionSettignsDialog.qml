@@ -497,7 +497,7 @@ Dialog {
                     objectName: "rdm_connection_settings_dialog_ok_btn"
                     text: qsTr("OK")
                     onClicked: {
-                        if (root.validate()) {                            
+                        if (root.validate()) {
                             root.saveConnection(root.settings)
                             root.close()
                         } else {

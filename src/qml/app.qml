@@ -8,6 +8,7 @@ import QtQuick.Window 2.2
 import Qt.labs.settings 1.0
 import "."
 import "./common"
+import "./common/platformutils.js" as PlatformUtils
 import "./value-editor"
 import "./connections-tree"
 import "./console"
@@ -18,86 +19,86 @@ ApplicationWindow {
     id: approot
     visible: true
     objectName: "rdm_qml_root"
-    title: "Redis Desktop Manager 0.9.1+"
+    title: "Redis Desktop Manager " + Qt.application.version
     width: 1100
     height: 800
 
     FileDialog {
-        id: importConnectionsDialog
-        title: qsTr("Import Connections")
-        nameFilters: ["RDM Connections (*.xml *.json)"]
-        selectExisting: true
-        onAccepted: connectionsManager.importConnections(qmlUtils.getPathFromUrl(fileUrl))
-    }
+       id: importConnectionsDialog
+       title: qsTr("Import Connections")
+       nameFilters: ["RDM Connections (*.xml *.json)"]
+       selectExisting: true
+       onAccepted: connectionsManager.importConnections(qmlUtils.getPathFromUrl(fileUrl))
+   }
 
-    FileDialog {
-        id: exportConnectionsDialog
-        title: qsTr("Export Connections")
-        nameFilters: ["RDM Connections (*.json)"]
-        selectExisting: false
-        onAccepted: connectionsManager.saveConnectionsConfigToFile(qmlUtils.getPathFromUrl(fileUrl))
-    }
+   FileDialog {
+       id: exportConnectionsDialog
+       title: qsTr("Export Connections")
+       nameFilters: ["RDM Connections (*.json)"]
+       selectExisting: false
+       onAccepted: connectionsManager.saveConnectionsConfigToFile(qmlUtils.getPathFromUrl(fileUrl))
+   }
 
-    menuBar: MenuBar {
-            Menu {
-                title: "File"
-                MenuItem {
-                    text: "New Connection..."
-                    onTriggered: {
-                        connectionSettingsDialog.settings = connectionsManager.createEmptyConfig()
-                        connectionSettingsDialog.open()
-                    }
-                }
-                MenuItem {
-                    text: "Import Connections"
-                    onTriggered: {
-                        importConnectionsDialog.open()
-                    }
-                }
-                MenuItem {
-                    text: "Export Connections"
-                    onTriggered: {
-                        exportConnectionsDialog.open()
-                    }
-                }
-            }
-            Menu {
-                title: "Window"
-                MenuItem {
-                    text: "Minimize"
-                    onTriggered: {
-                        approot.showMinimized()
-                    }
-                }
-                MenuItem {
-                    text: "Go Fullscreen"
-                    onTriggered: {
-                        approot.showFullScreen()
-                    }
-                }
-            }
-            Menu {
-                title: "Help"
-                MenuItem {
-                    text: "How to start using RDM"
-                    onTriggered: {
-                        Qt.openUrlExternally("http://docs.redisdesktop.com/en/latest/quick-start/")
-                    }
-                }
-                MenuItem {
-                    text: "Online Documentation"
-                    onTriggered: {
-                        Qt.openUrlExternally("http://docs.redisdesktop.com/en/latest/")
-                    }
-                }
-                MenuItem {
-                    text: "Redis Documentation"
-                    onTriggered: {
-                        Qt.openUrlExternally("https://redis.io/documentation")
-                    }
-                }
-            }
-        }
+   menuBar: MenuBar {
+           Menu {
+               title: "File"
+               MenuItem {
+                   text: "New Connection..."
+                   onTriggered: {
+                       connectionSettingsDialog.settings = connectionsManager.createEmptyConfig()
+                       connectionSettingsDialog.open()
+                   }
+               }
+               MenuItem {
+                   text: "Import Connections"
+                   onTriggered: {
+                       importConnectionsDialog.open()
+                   }
+               }
+               MenuItem {
+                   text: "Export Connections"
+                   onTriggered: {
+                       exportConnectionsDialog.open()
+                   }
+               }
+           }
+           Menu {
+               title: "Window"
+               MenuItem {
+                   text: "Minimize"
+                   onTriggered: {
+                       approot.showMinimized()
+                   }
+               }
+               MenuItem {
+                   text: "Go Fullscreen"
+                   onTriggered: {
+                       approot.showFullScreen()
+                   }
+               }
+           }
+           Menu {
+               title: "Help"
+               MenuItem {
+                   text: "How to start using RDM"
+                   onTriggered: {
+                       Qt.openUrlExternally("http://docs.redisdesktop.com/en/latest/quick-start/")
+                   }
+               }
+               MenuItem {
+                   text: "Online Documentation"
+                   onTriggered: {
+                       Qt.openUrlExternally("http://docs.redisdesktop.com/en/latest/")
+                   }
+               }
+               MenuItem {
+                   text: "Redis Documentation"
+                   onTriggered: {
+                       Qt.openUrlExternally("https://redis.io/documentation")
+                   }
+               }
+           }
+       }
 
     property double wRatio : (width * 1.0) / (Screen.width * 1.0)
     property double hRatio : (height * 1.0) / (Screen.height * 1.0)
@@ -109,6 +110,10 @@ ApplicationWindow {
             console.log("Ratio > 1.0. Resize main window.")
             width = Screen.width * 0.9
             height = Screen.height * 0.8
+        }
+
+        if (PlatformUtils.isOSXRetina(Screen)) {
+            bottomTabView.implicitHeight = 100
         }
     }
 
@@ -317,7 +322,7 @@ ApplicationWindow {
             BetterTabView {
                 id: bottomTabView
                 Layout.fillWidth: true
-                Layout.minimumHeight: 30
+                Layout.minimumHeight: PlatformUtils.isOSXRetina()? 15 : 30
 
                 tabPosition: Qt.BottomEdge
 

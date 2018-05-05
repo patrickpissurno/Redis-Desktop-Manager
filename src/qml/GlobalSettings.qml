@@ -12,7 +12,7 @@ Dialog {
 
     contentItem: Item {
         implicitWidth: 800
-        implicitHeight: 650
+        implicitHeight: 670
 
         ColumnLayout {
             anchors.fill: parent
@@ -56,6 +56,17 @@ Dialog {
                 model: ["8", "9", "10", "11", "12"]
                 value: Qt.platform.os == "osx"? "12" : "11"
                 label: qsTr("Font Size")
+                description: qsTr("Application restart is needed to apply this setting.")
+            }
+
+            BoolOption {
+                id: systemProxy
+
+                Layout.fillWidth: true
+                Layout.preferredHeight: 40
+
+                value: false
+                label: qsTr("Use system proxy settings")
                 description: qsTr("Application restart is needed to apply this setting.")
             }
 
@@ -110,8 +121,7 @@ Dialog {
                 value: 10
                 label: qsTr("Live update interval (in seconds)")
                 description: ""
-            }
-
+            }               
 
             Text {
                 text: qsTr("Custom Value View Formatters")
@@ -170,6 +180,7 @@ Dialog {
         property alias appFont: appFont.value
         property alias appFontSize: appFontSize.value
         property alias locale: appLang.value
+        property alias useSystemProxy: systemProxy.value
     }
 
     Settings {

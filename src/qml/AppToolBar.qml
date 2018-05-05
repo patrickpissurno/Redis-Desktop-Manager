@@ -46,7 +46,7 @@ ToolBar {
 
             FileDialog {
                 id: exportConnectionsDialog
-                title: qsTr("Export Connections")
+                title: qsTr("Import Connections")
                 nameFilters: ["RDM Connections (*.json)"]
                 selectExisting: false
                 onAccepted: connectionsManager.saveConnectionsConfigToFile(qmlUtils.getPathFromUrl(fileUrl))

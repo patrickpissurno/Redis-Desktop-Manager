@@ -11,7 +11,7 @@ Dialog {
 
     contentItem: Item {
         implicitWidth: msgLayout.implicitWidth + 50
-        implicitHeight: 120
+        implicitHeight: 130
 
         ColumnLayout {
             anchors.centerIn: parent

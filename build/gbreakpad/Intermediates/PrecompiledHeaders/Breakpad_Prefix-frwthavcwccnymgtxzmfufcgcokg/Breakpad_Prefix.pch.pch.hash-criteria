@@ -1,0 +1,23 @@
+-x
+objective-c++
+-arch
+x86_64
+-gmodules
+-fpascal-strings
+-Os
+-DNDEBUG
+-isysroot
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
+-fasm-blocks
+-mmacosx-version-min=10.12
+-g
+-fvisibility-inlines-hidden
+-iquote
+-iquote
+-I/Users/patrickpissurno/Desktop/fuck/rdm/build/gbreakpad/Products/Release/include
+-I../..
+-F/Users/patrickpissurno/Desktop/fuck/rdm/build/gbreakpad/Products/Release
+x86_64-apple-darwin16.7.0
+"4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)"
+SDK_PRODUCT_BUILD_VERSION=16E185
+16E185

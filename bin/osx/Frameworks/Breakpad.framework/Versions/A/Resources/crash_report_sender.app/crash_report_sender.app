@@ -1,1 +1,1 @@
-/Users/patrickpissurno/Desktop/redis-desktop/rdm/bin/osx/Frameworks/crash_report_sender.app
+/Users/patrickpissurno/Desktop/fuck/rdm/bin/osx/Frameworks/crash_report_sender.app

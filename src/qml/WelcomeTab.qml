@@ -27,7 +27,7 @@ BetterTab {
                     RichTextWithLinks { html: '<span style="font-size:32pt;">Redis Desktop Manager</span>'}
                     RichTextWithLinks { html: '<span>
                                                     <table><tr>
-                                                            <td valign=middle style="color:black; font-size: 14px; padding-top:3px;"><b>Version</b> 0.9.1+ &nbsp;&nbsp;&nbsp; Developed by <a href="http://github.com/uglide">Igor Malinovskiy</a> in </td>
+                                                            <td valign=middle style="color:black; font-size: 14px; padding-top:3px;"><b>Version</b> ' + Qt.application.version + '  &nbsp;&nbsp;&nbsp; Developed by <a href="http://github.com/uglide">Igor Malinovskiy</a> in </td>
                                                             <td valign=middle><img width="20" height="20" src="qrc:/images/ua.svg" /></td>
                                                             <td valign=middle style="padding-top:3px;"><a href="http://en.wikipedia.org/wiki/Ukraine">Ukraine</a></td>
                                                     </tr></table>
@@ -106,10 +106,10 @@ BetterTab {
 
 
             RichTextWithLinks { html: '<span style="font-size: 11px;">Used third party software and images: <a href="http://qt.io/">Qt</a>, '
-                                      + '<a href="https://github.com/uglide/qredisclient">QRedisClient</a>, '
-                                      + '<a href="http://code.google.com/p/google-breakpad/">Google Breakpad</a>, '
-                                      + '<a href="http://icons8.com/">Icons from icons8.com</a>, '
-                                      + '<a href="http://redis.io/">Redis Logo</a>.</span>'}
+                                  + '<a href="https://github.com/uglide/qredisclient">QRedisClient</a>, '
+                                  + '<a href="http://code.google.com/p/google-breakpad/">Google Breakpad</a>, '
+                                  + '<a href="http://icons8.com/">Icons from icons8.com</a>, '
+                                  + '<a href="http://redis.io/">Redis Logo</a>.</span>'}
 
             Rectangle { color: "#cccccc"; Layout.preferredHeight: 1; Layout.fillWidth: true }
 
@@ -117,6 +117,7 @@ BetterTab {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 10
             }
+
 
             RichTextWithLinks { html: 'This version was patched by <a href="https://patrickpissurno.com.br">Patrick Pissurno</a> to bring better macOS support.<br>It is provided AS IS, with no implicit or explicit warranty.<br>'}
 
