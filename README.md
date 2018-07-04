@@ -23,6 +23,10 @@ A hard fork of the Redis Desktop Manager to better support macOS
 ## Download
 [Click here](https://github.com/patrickpissurno/Redis-Desktop-Manager/releases/download/0.9.9%2B/Redis-Desktop-Manager-0.9.9.dmg) to download the DMG.
 
+Note that you need to have Qt 5.9.0 installed. You can download it [here](https://www.qt.io/download-qt-installer). There is no need to install all Qt components. Just those in the picture below:
+
+![Qt components](https://i.imgur.com/bS1mWxy.png)
+
 ## Original repo
 This project was originally developed by Ihor Malinovskyi and the original source can be found [here](https://github.com/uglide/RedisDesktopManager).
 
